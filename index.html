@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>妈妈</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <style>
+    html,body,div,p {
+      margin: 0;
+      padding: 0;
+    }
+    html,body {
+      width: 100%;
+      height: 100%;
+    }
+    .w-chat {
+      width: 100%;
+      min-height: 100%;
+      color: #353535;
+      background: #ebebeb;
+      overflow: hidden;
+    }
+    .w-chat-content {
+      padding-top: 1px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .w-chat-info {
+      margin: 10px 0;
+      width: 100%;
+      text-align: center;
+    }
+    .w-chat-time {
+      display: inline-block;
+      padding: 5px;
+      font-size: 12px;
+      color: #fff;
+      background: #d4d4d4;
+      border-radius: 4px;
+    }
+    .w-chat-col {
+      margin: 10px auto;
+      width: 94%;
+      font-size: 0;
+      overflow: hidden;
+    }
+    .w-chat-col-other {
+      padding-right: 14%;
+      text-align: left;
+      box-sizing: border-box;
+    }
+    .w-chat-col-me {
+      padding-left: 14%;
+      text-align: right;
+      box-sizing: border-box;
+    }
+    .w-chat-avatar {
+      display: inline-block;
+      width: 15%;
+      height: auto;
+      vertical-align: top;
+    }
+    .w-chat-col-other .w-chat-avatar {
+      margin-right: 2.5%;
+    }
+    .w-chat-col-me .w-chat-avatar {
+      float: right;
+      margin-left: 2.5%;
+    }
+    .w-chat-avatar img {
+      width: 100%;
+      height: auto;
+    }
+    .w-chat-text {
+      position: relative;
+      display: inline-block;
+      padding: 10px;
+      max-width: 82.5%;
+      min-height: 40px;
+      font-size: 16px;
+      line-height: 1.4;
+      text-align: left;
+      vertical-align: top;
+      word-break: break-all;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .w-chat-col-other .w-chat-text {
+      background: #fff;
+      box-sizing: border-box;
+    }
+    .w-chat-col-other .w-chat-text:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: -4px;
+      display: block;
+      width: 0;
+      border-style:solid;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent #fff;
+    }
+    .w-chat-col-me .w-chat-text {
+      background: #b2e866;
+      box-sizing: border-box;
+    }
+    .w-chat-col-me .w-chat-text:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      right: -4px;
+      display: block;
+      width: 0;
+      border-style:solid;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent #b2e866;
+    }
+  </style>
+</head>
+<body>
+  <div class="w-chat">
+    <div class="w-chat-content" id="J_Container">
+      <div class="w-chat-info">
+        <div class="w-chat-time">
+          <p>下午 2:30</p>
+        </div>
+      </div>
+      <!--<div class="w-chat-col w-chat-col-other">-->
+        <!--<div class="w-chat-avatar">-->
+          <!--<img src="assets/img/mother.jpg" alt="avatar"/>-->
+        <!--</div>-->
+        <!--<div class="w-chat-text">-->
+          <!--<p>女儿，最近怎么样啊？吃饭没有？</p>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="w-chat-col w-chat-col-me">-->
+        <!--<div class="w-chat-text">-->
+          <!--<p>吃过啦，放心我挺好的</p>-->
+        <!--</div>-->
+        <!--<div class="w-chat-avatar">-->
+          <!--<img src="assets/img/daughter.jpg" alt="avatar"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="w-chat-col w-chat-col-other">-->
+        <!--<div class="w-chat-avatar">-->
+          <!--<img src="assets/img/mother.jpg" alt="avatar"/>-->
+        <!--</div>-->
+        <!--<div class="w-chat-text">-->
+          <!--<p>你的朋友圈我都看到了，外卖那东西有啥好，全是地沟油，元宵节快到啦，也不知道自己做点饭吃</p>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="w-chat-col w-chat-col-me">-->
+        <!--<div class="w-chat-text">-->
+          <!--<p>知道啦~~妈，你和老爸在家里注意身体哦</p>-->
+        <!--</div>-->
+        <!--<div class="w-chat-avatar">-->
+          <!--<img src="assets/img/daughter.jpg" alt="avatar"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="w-chat-col w-chat-col-other">-->
+        <!--<div class="w-chat-avatar">-->
+          <!--<img src="assets/img/mother.jpg" alt="avatar"/>-->
+        <!--</div>-->
+        <!--<div class="w-chat-text">-->
+          <!--<p>我们好着呢，不用担心</p>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+  </div>
+
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script>
+    (function(){
+      var chat = {
+        container: $('#J_Container'),
+        gap: 1800,
+        count: 0,
+        data: [
+          {
+            type: 'other',
+            img: 'assets/img/mother.jpg',
+            text: '女儿，最近怎么样啊？吃饭没有?'
+          },{
+            type: 'me',
+            img: 'assets/img/daughter.jpg',
+            text: '吃过啦，放心我挺好的'
+          },{
+            type: 'other',
+            img: 'assets/img/mother.jpg',
+            text: '你的朋友圈我都看到了，外卖那东西有啥好，全是地沟油，元宵节快到啦，也不知道自己做点饭吃'
+          },{
+            type: 'me',
+            img: 'assets/img/daughter.jpg',
+            text: '知道啦~~妈，你和老爸在家里注意身体哦'
+          },{
+            type: 'other',
+            img: 'assets/img/mother.jpg',
+            text: '我们好着呢，不用担心'
+          }
+        ],
+        queue: function(){
+          var piece = chat.data[chat.count];
+          var ele = '<div class="w-chat-col w-chat-col-' + piece.type
+            + '"><div class="w-chat-avatar"><img src="' + piece.img
+            + '" alt="avatar"/></div><div class="w-chat-text"><p>' + piece.text
+            + '</p></div></div>';
+          chat.container.append(ele);
+          chat.count = chat.count + 1;
+        },
+        start: function(){
+          var timeout = setInterval(function(){
+            chat.queue();
+          }, chat.gap);
+          if (chat.count === chat.data.length){
+            clearInterval(timeout);
+          }
+        }
+      };
+      window.chat = chat;
+      chat.start()
+    })();
+  </script>
+</body>
+</html>
